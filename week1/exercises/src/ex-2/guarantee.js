@@ -21,10 +21,10 @@ const details = [
   },
 ];
 
-export default function Excercise2() {
+export default function CutomerGuarantee() {
   return details.map((detail, index) => (
     <Guarantee
-      key={"Guarantee" + index}
+      key={`Guarantee ${index}`}
       img={detail.img}
       title={detail.title}
       description={detail.description}

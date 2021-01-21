@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import HobbyList from "./ex-1/HobbyList";
-import Excercise2 from "./ex-2/guarantee";
+import CutomerGuarantee from "./ex-2/guarantee";
 import Counter from "./ex-3/counter";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <HobbyList />
       <h1>Excercise 2</h1>
       <div className="excercise2">
-        <Excercise2 />
+        <CutomerGuarantee />
       </div>
       <h1>Excercise 3</h1>
       <Counter />

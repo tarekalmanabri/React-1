@@ -7,7 +7,7 @@ export default function HobbyList() {
     "Mountain biking",
     "Breakdancing",
   ];
-  return hobbies.map((hobby, index) => {
-    return <Hobby hobby={hobby} key={"hobby" + index} />;
-  });
+  return hobbies.map((hobby, index) => (
+    <Hobby hobby={hobby} key={"hobby" + index} />
+  ));
 }

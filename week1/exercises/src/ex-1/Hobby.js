@@ -1,4 +1,8 @@
-export default function Hobby(prop) {
-  const hobby = prop.hobby;
-  return <div>{hobby}</div>;
+export default function Hobby(props) {
+  const hobby = props.hobby;
+  return (
+    <div>
+      <p>{hobby}</p>
+    </div>
+  );
 }
