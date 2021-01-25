@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.list-item {
+  list-style: none;
+}
+
+.btn {
+  padding: 10px;
+  margin: 10px;
+}
+
+.img {
+  max-width: 300px;
+}
