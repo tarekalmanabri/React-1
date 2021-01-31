@@ -1,0 +1,42 @@
+.App {
+  font-family: "Nanum Gothic", sans-serif;
+  margin: auto;
+  width: 98%;
+  max-width: 400px;
+}
+
+.city {
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 10px auto;
+  padding: 10px 30px;
+}
+
+.city button {
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 100%;
+}
+.city button:focus {
+  outline: none;
+}
+
+.title {
+  text-align: center;
+}
+
+.weather-status h2 {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.weather-status p {
+  margin-top: 0;
+}
+.btn {
+  padding: 10px;
+  margin-left: 10px;
+}
+.search-bar {
+  width: 200px;
+  padding: 10px;
+}
