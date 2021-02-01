@@ -10,6 +10,11 @@ export default function DogGallery() {
     return fetch(url)
       .then((res) => res.json())
       .then((data) => {
+        if (data.code !== 200) {
+          setError("City not found");
+          return;
+        }
+        setError(null);
         setDogPhotos([...dogPhotos, data.message]);
       })
       .catch((err) => {

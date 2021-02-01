@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_Key = "7471b32bdb071a4265631474c52f1765";
+const API_Key = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
 export default function City() {
   const [weather, setWeather] = useState();
 
@@ -34,12 +34,19 @@ export default function City() {
 
 function SearchForm({ setWeather }) {
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
   const getWeather = () => {
     return fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${API_Key}&units=metric`
     )
       .then((res) => res.json())
       .then((data) => {
+        if (data.cod != "200") {
+          setError("City not found");
+          return;
+        }
+
+        setError(null);
         setWeather(data);
       })
       .catch((err) => console.log(err));
