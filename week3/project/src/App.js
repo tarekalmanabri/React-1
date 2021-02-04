@@ -1,5 +1,5 @@
 import "./App.css";
-import City from "./data";
+import City from "./GetCity";
 
 function App() {
   return (

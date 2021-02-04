@@ -41,12 +41,20 @@ export default function City({ index, name }) {
 
 function SearchForm({ setWeather, weather }) {
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
   const getWeather = () => {
     return fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${API_Key}&units=metric`
     )
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          setError(res.statusText);
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
       .then((data) => {
+        setError(null);
         setWeather([...weather, data]);
       })
       .catch((err) => console.log(err));
@@ -70,6 +78,7 @@ function SearchForm({ setWeather, weather }) {
         className="btn"
         value="Get Weather"
       />
+      {error && <p>{error}</p>}
     </form>
   );
 }
