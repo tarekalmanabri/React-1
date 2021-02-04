@@ -1,0 +1,89 @@
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nanum Gothic", sans-serif;
+}
+
+header {
+  background-color: lightskyblue;
+}
+
+nav {
+  width: 98%;
+  max-width: 800px;
+  margin: auto;
+}
+
+nav ul {
+  display: flex;
+  padding: 0.5em;
+  margin: 0;
+  list-style: none;
+}
+
+nav ul a {
+  display: block;
+  padding: 1em 0.5em;
+  text-decoration: none;
+  color: inherit;
+  background-color: ivory;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-inner {
+  margin: auto;
+}
+
+.home a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.city {
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin: 10px auto;
+  padding: 10px 30px;
+}
+
+.city button {
+  position: absolute;
+  right: 30px;
+  height: 3em;
+  width: 3em;
+  background-color: transparent;
+  border-radius: 100%;
+}
+.city button:focus {
+  outline: none;
+}
+
+.title {
+  text-align: center;
+}
+
+.weather-status h2 {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.weather-status p {
+  margin-top: 0;
+}
+.btn {
+  padding: 10px;
+  margin-left: 10px;
+}
+.search-bar {
+  width: 200px;
+  padding: 10px;
+}
