@@ -8,12 +8,14 @@ export default function DogGallery() {
 
   const getDogPhoto = () => {
     return fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.code !== 200) {
-          setError("City not found");
-          return;
+      .then((res) => {
+        if (!res.ok) {
+          setError(res.statusText);
+          throw new Error(res.statusText);
         }
+        return res.json();
+      })
+      .then((data) => {
         setError(null);
         setDogPhotos([...dogPhotos, data.message]);
       })

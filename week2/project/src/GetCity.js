@@ -39,13 +39,14 @@ function SearchForm({ setWeather }) {
     return fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${API_Key}&units=metric`
     )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.cod != "200") {
-          setError("City not found");
-          return;
+      .then((res) => {
+        if (!res.ok) {
+          setError(res.statusText);
+          throw new Error(res.statusText);
         }
-
+        return res.json();
+      })
+      .then((data) => {
         setError(null);
         setWeather(data);
       })
@@ -65,6 +66,7 @@ function SearchForm({ setWeather }) {
     >
       <Search setName={setName} />
       <input type="submit" className="btn" value="Get Weather" />
+      {error && <p>{error}</p>}
     </form>
   );
 }

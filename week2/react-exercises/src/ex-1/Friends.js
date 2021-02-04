@@ -3,19 +3,22 @@ import { useState } from "react";
 const url = "https://www.randomuser.me/api?results=1";
 
 export default function Friend() {
-  const [friend, setFriend] = useState({});
-  const [hasError, setError] = useState(false);
+  const [friend, setFriend] = useState();
+  const [error, setError] = useState(false);
 
   function getFriends() {
     return fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.code !== 200) {
-          setError("City not found");
-          return;
+      .then((res) => {
+        if (!res.ok) {
+          setError(res.statusText);
+          throw new Error(res.statusText);
         }
+
+        return res.json();
+      })
+      .then((data) => {
         setError(null);
-        setFriend(data.results);
+        setFriend(data.results[0]);
       })
       .catch((err) => {
         console.log(err);
@@ -25,8 +28,8 @@ export default function Friend() {
   return (
     <div>
       <Button onClick={getFriends} text="Get a friend!" />
-      {!hasError && <FriendProfile friend={friend} />}
-      {hasError && <p>something went wrong</p>}
+      {!error && friend && <FriendProfile friend={friend} />}
+      {error && <p>Error: {error}</p>}
     </div>
   );
 }
