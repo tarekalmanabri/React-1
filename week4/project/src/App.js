@@ -1,5 +1,5 @@
 import "./App.css";
-import City from "./components/GetCity";
+import GetCity from "./components/GetCity";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CityPage from "./components/CityPage";
 
@@ -22,7 +22,7 @@ function App() {
             <Route path="/">
               <div className="home">
                 <h1 className="title">Weather</h1>
-                <City />
+                <GetCity />
               </div>
             </Route>
           </Switch>

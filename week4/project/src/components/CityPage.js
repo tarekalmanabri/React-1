@@ -16,7 +16,7 @@ function CityPage() {
   const [chartData, setChartData] = useState();
   const [error, setError] = useState();
 
-  let { cityId } = useParams();
+  const { cityId } = useParams();
 
   useEffect(() => {
     fetch(
@@ -30,10 +30,11 @@ function CityPage() {
         return res.json();
       })
       .then((data) => {
+        setError(null);
         setupChart(data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [cityId]);
 
   function setupChart(forecast) {
     setChartData(
