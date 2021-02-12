@@ -1,11 +1,16 @@
 import "./App.css";
-import City from "./GetCity";
+import { useState } from "react";
+import Cities from "./GetCity";
+import SearchForm from "./Search";
 
 function App() {
+  const [weather, setWeather] = useState([]);
+
   return (
     <div className="App">
       <h1 className="title">Weather</h1>
-      <City />
+      <SearchForm weather={weather} setWeather={setWeather} />
+      <Cities weather={weather} setWeather={setWeather} />
     </div>
   );
 }
